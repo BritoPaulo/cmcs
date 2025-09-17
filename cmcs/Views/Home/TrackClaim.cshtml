@@ -1,0 +1,96 @@
+﻿@model cmcs.Models.Claim
+@{
+    ViewData["Title"] = "Track Claim Status";
+}
+
+<h2>Track Claim Status</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Claim Details</h4>
+        <dl class="row">
+            <dt class="col-sm-4">Claim ID:</dt>
+            <dd class="col-sm-8">@Model.ClaimId</dd>
+
+            <dt class="col-sm-4">Claim Month:</dt>
+            <dd class="col-sm-8">@Model.ClaimMonth.ToString("MMMM yyyy")</dd>
+
+            <dt class="col-sm-4">Total Hours:</dt>
+            <dd class="col-sm-8">@Model.TotalHours</dd>
+
+            <dt class="col-sm-4">Total Amount:</dt>
+            <dd class="col-sm-8">@Model.TotalAmount.ToString("C")</dd>
+
+            <dt class="col-sm-4">Submitted Date:</dt>
+            <dd class="col-sm-8">@Model.SubmittedDate.ToString("yyyy-MM-dd")</dd>
+
+            <dt class="col-sm-4">Status:</dt>
+            <dd class="col-sm-8">
+                @if (Model.Status == "Submitted")
+                {
+                    <span class="badge bg-info">@Model.Status</span>
+                }
+                else if (Model.Status == "Under Review")
+                {
+                    <span class="badge bg-warning">@Model.Status</span>
+                }
+                else if (Model.Status == "Approved")
+                {
+                    <span class="badge bg-success">@Model.Status</span>
+                }
+                else if (Model.Status == "Rejected")
+                {
+                    <span class="badge bg-danger">@Model.Status</span>
+                }
+                else
+                {
+                    <span class="badge bg-secondary">@Model.Status</span>
+                }
+            </dd>
+        </dl>
+    </div>
+
+    <div class="col-md-6">
+        <h4>Status History</h4>
+        <div class="list-group">
+            <!-- Display the static status history from the ViewBag -->
+            @if (ViewBag.StatusHistory != null)
+            {
+                foreach (var eventEntry in ViewBag.StatusHistory)
+                {
+                    <div class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <small class="text-muted">@eventEntry</small>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>No status history available.</p>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- Section for Supporting Documents (Non-functional) -->
+<div class="row mt-4">
+    <div class="col-12">
+        <h4>Supporting Documents</h4>
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                March_2025_Timesheet.pdf
+                <a href="#" class="btn btn-sm btn-outline-primary">Download</a>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Class_Register_March.pdf
+                <a href="#" class="btn btn-sm btn-outline-primary">Download</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="mt-4">
+    <a asp-action="LecturerDashboard" class="btn btn-secondary">Back to Dashboard</a>
+</div>

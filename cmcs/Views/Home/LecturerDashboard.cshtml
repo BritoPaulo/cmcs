@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Lecturer Dashboard";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Lecturer Dashboard</h2>
+    <a asp-action="SubmitClaim" class="btn btn-success">+ Submit New Claim</a>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <h4>My Recent Claims</h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Claim ID</th>
+                    <th>Month</th>
+                    <th>Hours</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Submitted</th>
+                    <th>Actions</th> <!-- Added new column for Actions -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Static demo data -->
+                <tr>
+                    <td>1001</td>
+                    <td>March 2025</td>
+                    <td>40.5</td>
+                    <td>R 12,150.00</td>
+                    <td><span class="badge bg-warning">Under Review</span></td>
+                    <td>2025-03-05</td>
+                    <td>
+                        <!-- Link to the TrackClaim action -->
+                        <a asp-action="TrackClaim" class="btn btn-sm btn-info">Track</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1000</td>
+                    <td>February 2025</td>
+                    <td>38.0</td>
+                    <td>R 11,400.00</td>
+                    <td><span class="badge bg-success">Approved</span></td>
+                    <td>2025-02-03</td>
+                    <td>
+                        <a asp-action="TrackClaim" class="btn btn-sm btn-info">Track</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

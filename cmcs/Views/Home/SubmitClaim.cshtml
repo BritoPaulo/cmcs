@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Submit New Claim";
+}
+
+<h2>Submit New Claim</h2>
+<hr />
+
+<!-- This form does not actually submit data anywhere (non-functional) -->
+<form>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="claimMonth" class="form-label">Claim Month</label>
+            <input type="month" class="form-control" id="claimMonth">
+        </div>
+        <div class="col-md-6">
+            <label for="totalHours" class="form-label">Total Hours</label>
+            <input type="number" step="0.5" class="form-control" id="totalHours" placeholder="e.g., 40.5">
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="supportingDocs" class="form-label">Upload Supporting Documents</label>
+        <input class="form-control" type="file" id="supportingDocs" multiple>
+        <div class="form-text">Upload timesheets, attendance registers, etc.</div>
+    </div>
+
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="termsCheck">
+        <label class="form-check-label" for="termsCheck">I confirm that the information provided is accurate.</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Claim</button>
+    <a asp-action="LecturerDashboard" class="btn btn-secondary">Cancel</a>
+</form>
