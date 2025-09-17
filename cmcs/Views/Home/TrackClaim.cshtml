@@ -9,42 +9,55 @@
 <div class="row">
     <div class="col-md-6">
         <h4>Claim Details</h4>
+        <!-- Definition list for displaying claim information in a key-value format -->
         <dl class="row">
+            <!-- Claim ID -->
             <dt class="col-sm-4">Claim ID:</dt>
             <dd class="col-sm-8">@Model.ClaimId</dd>
 
+            <!-- Month being claimed (formatted as "March 2025") -->
             <dt class="col-sm-4">Claim Month:</dt>
             <dd class="col-sm-8">@Model.ClaimMonth.ToString("MMMM yyyy")</dd>
 
+            <!-- Total hours worked for the claim period -->
             <dt class="col-sm-4">Total Hours:</dt>
             <dd class="col-sm-8">@Model.TotalHours</dd>
 
+            <!-- Calculated total amount (formatted as currency) -->
             <dt class="col-sm-4">Total Amount:</dt>
             <dd class="col-sm-8">@Model.TotalAmount.ToString("C")</dd>
 
+            <!-- Date when the claim was submitted (formatted as YYYY-MM-DD) -->
             <dt class="col-sm-4">Submitted Date:</dt>
             <dd class="col-sm-8">@Model.SubmittedDate.ToString("yyyy-MM-dd")</dd>
 
+            <!-- Current status of the claim with color-coded badge -->
             <dt class="col-sm-4">Status:</dt>
             <dd class="col-sm-8">
+                @* Conditional rendering of status badge with different colors based on claim state *@
                 @if (Model.Status == "Submitted")
                 {
+                    <!-- Blue badge for newly submitted claims -->
                     <span class="badge bg-info">@Model.Status</span>
                 }
                 else if (Model.Status == "Under Review")
                 {
+                    <!-- Yellow/amber badge for claims in progress -->
                     <span class="badge bg-warning">@Model.Status</span>
                 }
                 else if (Model.Status == "Approved")
                 {
+                    <!-- Green badge for successfully approved claims -->
                     <span class="badge bg-success">@Model.Status</span>
                 }
                 else if (Model.Status == "Rejected")
                 {
+                    <!-- Red badge for rejected claims -->
                     <span class="badge bg-danger">@Model.Status</span>
                 }
                 else
                 {
+                    <!-- Gray badge for any unexpected status values -->
                     <span class="badge bg-secondary">@Model.Status</span>
                 }
             </dd>

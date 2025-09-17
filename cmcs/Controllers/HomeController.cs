@@ -65,6 +65,7 @@ namespace cmcs.Controllers
     };
 
             return View(sampleClaim); // Pass the sample claim to the view
+            // Pass the sample claim to the view
         }
     }
 }
