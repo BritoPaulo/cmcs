@@ -25,10 +25,10 @@ namespace cmcs.Tests
                 RatePerHour = 300
             };
 
-            // Act
+            // act
             var totalAmount = claim.TotalAmount;
 
-            // Assert
+            // assert
             Assert.Equal(12000, totalAmount);
         }
 
