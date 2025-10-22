@@ -125,7 +125,7 @@ namespace cmcs.Tests
             Assert.Equal("Rejected", updatedClaim.Status);
             Assert.IsType<RedirectToActionResult>(result);
         }
-
+        //Dispose
         public void Dispose()
         {
             _context?.Dispose();
