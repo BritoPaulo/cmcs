@@ -6,25 +6,35 @@
     <div class="col-md-4">
         <h2 class="text-center mb-4">Contract Monthly Claim System</h2>
 
-        <!-- Simple, non-functional login form -->
+        <!-- Fixed login form -->
         <form asp-action="Dashboard" asp-controller="Home" method="get">
             <div class="form-group mb-3">
                 <label for="email">Email Address</label>
-                <input type="email" class="form-control" id="email" placeholder="name@example.com" value="lecturer@iie.com">
+                <input type="email" class="form-control" id="email" name="email"
+                       placeholder="name@example.com" value="lecturer@iie.com" required> <!-- Fixed: iie.com -->
             </div>
             <div class="form-group mb-3">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" value="password">
+                <input type="password" class="form-control" id="password" name="password"
+                       value="password" required>
             </div>
 
             <div class="d-grid gap-2">
-                <!-- This button will just navigate to the Dashboard, no real auth -->
                 <button type="submit" class="btn btn-primary">Login</button>
             </div>
 
-            <p class="text-muted text-center mt-3">
-                <small>Demo: Logs in as a Lecturer. Change email to 'admin@iie.com' for the admin view.</small>
-            </p>
+            <div class="mt-3">
+                <p class="text-muted text-center">
+                    <strong>Demo Accounts:</strong>
+                </p>
+                <div class="text-center">
+                    <small class="text-muted">
+                        📧 <strong>lecturer@iie.com</strong> - Lecturer Dashboard<br>
+                        📧 <strong>admin@iie.com</strong> - Admin Dashboard<br>
+                        📧 <strong>coordinator@iie.com</strong> - Admin Dashboard
+                    </small>
+                </div>
+            </div>
         </form>
     </div>
 </div>
